@@ -1,5 +1,0 @@
-var data = [{"tech":"Coal fire power plant","carbon":2000},
-{"tech":"Natural gas power plant","carbon":1000},
-{"tech":"Bloom (Advertised Number)","carbon":773},
-{"tech":"Solar","carbon":100},
-{"tech":"Wind","carbon":100}];

@@ -93,9 +93,6 @@
 
         .y.axis path,
         .y.axis line {
-            fill: none;
-            stroke: lightgray;
-            shape-rendering: crispEdges;
             display: none;
         }
 
@@ -105,15 +102,14 @@
         .y.axis text {
             fill: black;
         }
-
         .x.axis path,
         .x.axis line {
             shape-rendering: crispEdges;
             stroke: lightgray;
             fill: none;
         }
-        .x.axis text {
-            fill: gray;
+        .x.axis tick {
+            fill: darkgray;
         }
 
         /*Grid Style*/
@@ -129,11 +125,6 @@
 
         .grid path {
             stroke-width: 1;
-        }
-
-        .label {
-            font: 10px sans-serif;
-            fill: gray;
         }
 
         /*popup style*/

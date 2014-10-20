@@ -1,5 +1,5 @@
 var pymChild = null,
-    mobileThreshold = 500, //set to 500 for testing
+    mobileThreshold = 300, //set to 500 for testing
     aspect_width = 16,
     aspect_height = 9;
 
@@ -107,7 +107,7 @@ function render(w) {
                  }
 
     //data stuff
-        x.domain([0, d3.max(data, function(d) { return d.carbon; })]);
+        x.domain([0, d3.max(data, function(d) { return d.carbon + 100; })]);
         y.domain(data.map(function(d) { return d.tech; }));
 
         //color pallete
@@ -124,6 +124,7 @@ function render(w) {
                 .tickFormat("")
             )
 
+        //bar
         svg.selectAll(".bar")
               .data(data)
             .enter().append("rect")
@@ -148,14 +149,16 @@ function render(w) {
                         .style("opacity", 0);
                 });
 
+        //y axis labels
         svg.append("g")
             .attr("transform", "translate(-3," + mobile.axis + ")")
             .attr("class", "y axis")
             .call(yAxis)
                 .attr("text-anchor", "end")
             .selectAll(".tick text")
-                .call(wrap, margin.left);
+                .call(wrap, margin.left); //call word wrapping function
 
+        //call x axis (delete for a very spare effecrt)
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -184,10 +187,9 @@ function render(w) {
             tspan.text(line.join(" "));
             line = [word];
             tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);}
-        }
-        });
+            }
+    });
     }
-
 
 //end function render    
 }
